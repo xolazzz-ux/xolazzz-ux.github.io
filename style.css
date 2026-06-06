@@ -833,25 +833,25 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
         width: max-content;
     }
 
-    /* PHOTO — pinned to the top of the viewport, horizontally centered.
-       Overlaps the eyebrow + title visually (which are still readable
-       around its edges thanks to the wordmark bleed). */
+    /* PHOTO — pinned to the top of the viewport, horizontally centered,
+       enlarged 1.5×. Slight negative top bleeds past the top edge so the
+       head sits closer to the screen edge. */
     .hero__photo {
         position: absolute;
-        top: 0;
+        top: -4vw;                       /* lift ~10-15px past top edge */
         left: 50%;
         right: auto;
         transform: translateX(-50%);     /* center horizontally */
-        width: 70vw;
+        width: 105vw;                    /* 1.5× of previous 70vw */
         margin: 0;
         z-index: 2;                       /* paint above title text */
         float: none;
         shape-outside: none;
     }
 
-    /* About flows after the image — margin-top clears the photo's height */
+    /* About flows after the larger image — margin-top clears its height */
     .hero__about {
-        margin: 60vw 0 0;
+        margin: 95vw 0 0;
         padding: 0 5vw;
         width: 100%;
         font-size: 3.6vw;
