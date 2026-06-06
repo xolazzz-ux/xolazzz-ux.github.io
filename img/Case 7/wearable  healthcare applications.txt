@@ -1,0 +1,43 @@
+Why?
+The cross-platform product has a huge functionality, which every year becomes more and more. After a while, users began to encounter difficulties in interacting with the interface.
+
+Challenge
+The challenge was to design wearable app that logs activity level information collected from the watch sensors and it's integration with a mobile app for one of the worldwide leading manufactures of medical devices, dedicated to transforming lives through innovative medical solutions. 
+
+Research & Discovery
+Problems at the very beggining: 
+
+Due to medical and privacy restrictions, we had a limited number of potential end-users who agreed to participate in testing and answer questions.
+
+These individuals were potential users of the product.
+
+Based on the design brief, user and stakeholder interviews, We gathered information to create user personas.
+
+Hardware strikes back:
+
+After studying users, collecting a backlog, interviewing the client, and conducting in-depth market research, we realized that one of the challenges would be battery consumption.
+
+People don't want to charge their devices (watches) too often.
+
+A decision was made to investigate the hardware part of the devices, specifications, and manufacturer recommendations to understand how to minimize battery consumption.
+
+From this, we derived several important points and recommendations to save the battery life and be more inclusive:
+
+simplified layout
+
+sensible usage of colours and graphics
+
+fine lines and fonts
+
+The first results:
+
+After the first prototype based on our research was ready, we conducted user testing and received positive feedback from potential users.
+
+With two iterations, the product was ready to adopt its initial visual style.
+
+ 
+
+Additionally, a design system was created along with a comprehensive set of guidelines for developers.
+
+Result
+We obtained a watch application that was user-friendly for all age groups and battery-friendly. The mobile applications were synchronized and designed following the same principles and styling.

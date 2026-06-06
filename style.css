@@ -1,0 +1,889 @@
+/* =============================================================
+   Denis Bogdanov · Portfolio
+   ============================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ----------------------------------------------------
+   1. Tokens
+   ---------------------------------------------------- */
+:root {
+    /* Palette — sourced from Denis's original index.html */
+    --bg:            #FBFBFB;
+    --bg-dark:       #0A0A0A;
+    --ink:           #25282B;   /* body text from original */
+    --ink-2:         #484848;   /* about text from original */
+    --ink-3:         #6E6E6E;
+    --line:          rgba(10,10,10,.12);
+
+    /* Chromatic split colors */
+    --rgb-r:         #FF2261;
+    --rgb-g:         #3DDE7F;
+    --rgb-b:         #1FB0FF;
+
+    /* Typography */
+    --font-display:  "Roboto Condensed", "Arial Narrow", system-ui, sans-serif;
+    --font-body:     "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    /* Layout */
+    --gutter:        clamp(20px, 4vw, 64px);
+    --max:           1680px;
+
+    /* Motion */
+    --ease-out:      cubic-bezier(.2, .8, .2, 1);
+    --ease-in-out:   cubic-bezier(.65, 0, .35, 1);
+    --ease-snap:     cubic-bezier(.16, 1, .3, 1);
+}
+
+/* ----------------------------------------------------
+   2. Reset
+   ---------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-display);  /* original used Roboto Condensed on body */
+    line-height: 1.55;
+    overflow-x: hidden;          /* clip wordmark that bleeds past viewport */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+h1, h2, h3, h4, p { margin: 0; }
+ol, ul { list-style: none; padding: 0; margin: 0; }
+
+/* Shared inner container (for cases & footer only — hero is full-vw) */
+.container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* ----------------------------------------------------
+   3. Decorative grain
+   ---------------------------------------------------- */
+.grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .035;
+    z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+}
+
+/* ============================================================
+   4. HERO — viewport-relative absolute layout (preserves
+   the Figma concept on any screen width via `vw` units)
+   ============================================================ */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 62vw;        /* contains the photo (~60vw tall) */
+    overflow: visible;    /* wordmark may bleed past viewport */
+}
+
+/* —— Subtitle / eyebrow —— inherits Roboto Condensed Regular from body */
+.hero__eyebrow {
+    position: absolute;
+    left: 5vw;
+    top: 9.93vw;
+    font-size: 2.5vw;
+    line-height: 1;
+    color: var(--ink);
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(.8vw);
+    animation: hero-fade-up .55s var(--ease-out) .1s forwards;
+}
+
+/* —— Big wordmark, bleeds past viewport on both sides —— */
+.hero__title {
+    position: absolute;
+    left: -6.46vw;
+    top: 11.6vw;                /* tightened gap to eyebrow */
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20.48vw;
+    line-height: .7;
+    letter-spacing: -1.23vw;
+    white-space: nowrap;
+    color: var(--ink);
+    z-index: 1;
+    overflow: hidden;      /* clip the rising line during entrance */
+    padding-block: .04em;  /* a hair of padding to avoid descender clip */
+}
+.hero__title-line {
+    display: inline-block;
+    transform: translateY(105%);
+    animation: hero-title-rise .85s var(--ease-snap) .15s forwards;
+}
+
+/* —— Photo, scales with viewport —— */
+.hero__photo {
+    position: absolute;
+    left: 50vw;
+    top: 0vw;
+    width: 45vw;
+    z-index: 2;
+    margin: 0;            /* reset <figure> default margins */
+    pointer-events: none;
+}
+
+/* —— About block — matches original: Roboto Regular, #484848, 120% line —— */
+.hero__about {
+    position: absolute;
+    left: 5vw;
+    top: 31vw;
+    width: 52vw;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.0vw;
+    line-height: 120%;
+    color: var(--ink-2);
+    z-index: 3;
+}
+.hero__about p + p { margin-top: 1em; }
+.hero__about strong { color: inherit; font-weight: 400; }
+.hero__about p {
+    opacity: 0;
+    transform: translateY(.8vw);
+    animation: hero-fade-up .6s var(--ease-out) forwards;
+}
+.hero__about p:nth-child(1) { animation-delay: .55s; }
+.hero__about p:nth-child(2) { animation-delay: .65s; }
+.hero__about p:nth-child(3) { animation-delay: .75s; }
+.hero__about p:nth-child(4) { animation-delay: .85s; }
+
+/* —— Scroll cue (Case Studies link) — same hover language as See more,
+   only the arrow drops DOWN instead of going up-right —— */
+.hero__scroll {
+    position: absolute;
+    left: 5vw;
+    bottom: 8.5vw;
+    display: inline-flex;
+    align-items: center;
+    gap: 1vw;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: .95vw;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    z-index: 4;
+    opacity: 0;
+    padding-bottom: .35vw;
+    animation: hero-fade-up .55s var(--ease-out) 1.05s forwards;
+}
+.hero__scroll::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(.35);
+    transform-origin: left;
+    transition: transform .5s var(--ease-out);
+}
+.hero__scroll:hover::after { transform: scaleX(1); }
+.hero__scroll-arrow {
+    display: inline-block;
+    transition: transform .4s var(--ease-out);
+}
+.hero__scroll:hover .hero__scroll-arrow { transform: translate(0, 4px); }
+
+@keyframes hero-fade-up  { to { opacity: 1; transform: translateY(0); } }
+@keyframes hero-title-rise { to { transform: translateY(0); } }
+
+/* ============================================================
+   5. RGB CHROMATIC SPLIT — hero (4-layer stack)
+   ============================================================
+   Stack of 4 images:
+     • grey  — base (B&W), establishes container height
+     • red / green / blue — channel-tinted versions, blended on top
+   When R/G/B are aligned, they screen-blend with grey to produce
+   the full color photo. When offset, they trail as a chromatic split.
+   Animation: grey first → R/G/B fade in aligned → R/G/B drift apart.
+   ============================================================ */
+.rgb-image { position: relative; isolation: isolate; }
+
+/* Width is inherited from .hero__photo (45vw) — don't override it here.
+   Grey sits ON TOP; colored layers stack behind it and peek out from
+   their down-left offsets, like a chromatic trail. */
+.rgb-layer {
+    width: 100%;
+    height: auto;
+    display: block;
+    will-change: transform, opacity;
+}
+
+/* Grey is the topmost, fully opaque base — establishes container height. */
+.rgb-layer--grey {
+    position: relative;
+    z-index: 4;
+    transform: scale(.96);
+    animation: rgb-grey-pop .7s var(--ease-snap) .1s both;
+}
+
+/* Coloured layers stack absolutely BEHIND grey */
+.rgb-layer--red,
+.rgb-layer--green,
+.rgb-layer--blue {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translate(0, 0);
+    pointer-events: none;
+}
+
+/* Sequential reveal: grey first, then green emerges from behind,
+   then blue (further), then red (furthest). Each fades in while
+   sliding to its final offset. */
+.rgb-layer--green {
+    z-index: 3;
+    animation: rgb-green 1.0s var(--ease-snap) .75s both;
+}
+.rgb-layer--blue {
+    z-index: 2;
+    animation: rgb-blue  1.0s var(--ease-snap) 1.05s both;
+}
+.rgb-layer--red {
+    z-index: 1;
+    animation: rgb-red   1.0s var(--ease-snap) 1.35s both;
+}
+
+/* —— intro: grey scales up slightly —— */
+@keyframes rgb-grey-pop {
+    0%   { transform: scale(.96); }
+    100% { transform: scale(1); }
+}
+
+/* —— each colour fades in while sliding to its trail position —— */
+@keyframes rgb-green {
+    0%   { opacity: 0; transform: translate(0, 0); }
+    100% { opacity: 1; transform: translate(-.3vw, .7vw); }
+}
+@keyframes rgb-blue {
+    0%   { opacity: 0; transform: translate(0, 0); }
+    100% { opacity: 1; transform: translate(-.6vw, 1.3vw); }
+}
+@keyframes rgb-red {
+    0%   { opacity: 0; transform: translate(0, 0); }
+    100% { opacity: 1; transform: translate(-.9vw, 1.7vw); }
+}
+
+
+/* ============================================================
+   6. CASE STUDIES
+   ============================================================ */
+.cases {
+    padding: clamp(80px, 10vw, 160px) 0 0;
+}
+.cases__head {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: clamp(36px, 5vw, 72px);
+}
+.cases__mark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1;
+    color: var(--ink);
+    transform: translateY(-2px);
+}
+.cases__title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(18px, 1.8vw, 26px);
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+.cases__list {
+    display: grid;
+    gap: clamp(36px, 4.5vw, 64px);
+}
+
+/* —— Card shell ——
+   White box, fixed height. FLEX layout (not grid) — turns out grid +
+   :nth-child(even) reordering via grid-column had a quirk that left
+   the image on even cards mis-positioned. Flex with row-reverse for
+   alternating layout is simpler and lets `align-items: stretch` reliably
+   fill the row height on both flex children. */
+.case-card {
+    --card-h:  clamp(300px, 30vw, 440px);
+    --media-w: var(--card-h);                    /* square media */
+    position: relative;                          /* anchor for stretched-link ::after */
+    display: flex;
+    align-items: stretch;                        /* both children fill card-h */
+    height: var(--card-h);
+    background: #FFFFFF;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(28px);
+    will-change: transform, opacity, box-shadow;
+    box-shadow:
+        0 1px 2px rgba(10, 10, 10, .04),
+        0 8px 24px rgba(10, 10, 10, .06);
+    transition: box-shadow .4s var(--ease-out), transform .4s var(--ease-out);
+    border-radius: 32px;
+}
+
+/* —— Stretched-link: media-link's ::after covers the whole card,
+   so a click anywhere on the card navigates to the case page.
+   See more link stays clickable thanks to a higher z-index. —— */
+.case-card__media-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+.case-card__cta {
+    position: relative;
+    z-index: 2;
+}
+.case-card.in-view {
+    animation: card-fade-up .8s var(--ease-snap) both;
+}
+@keyframes card-fade-up {
+    0%   { opacity: 0; transform: translateY(28px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@media (hover: hover) {
+    .case-card:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 2px 4px rgba(10, 10, 10, .05),
+            0 16px 40px rgba(10, 10, 10, .09);
+    }
+}
+
+/* —— Body —— takes the remaining width (1fr-ish via flex:1) and
+   centers its children vertically via inner flex column —— */
+.case-card__body {
+    flex: 1 1 auto;
+    min-width: 0;                                /* allow shrink for long titles */
+    height: 100%;                                /* explicit height for IE/Safari fallback */
+    padding: clamp(28px, 3.2vw, 56px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;                     /* vertical centering of title/desc/cta */
+    gap: clamp(12px, 1.2vw, 20px);
+}
+
+/* —— Media —— fixed-width column, image fills it edge-to-edge —— */
+.case-card__media-link {
+    flex: 0 0 var(--media-w);                    /* never grows or shrinks */
+    height: 100%;
+    display: block;
+}
+.case-card__media {
+    width: 100%;
+    height: 100%;
+    background: #F4F4F4;
+    overflow: hidden;
+}
+.case-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* —— Alternating layout —— even cards mirror via row-reverse —— */
+.case-card:nth-child(even)               { flex-direction: row-reverse; }
+.case-card:nth-child(even) .case-card__body { text-align: right; }
+.case-card:nth-child(even) .case-card__cta  { align-self: flex-end; }
+.case-card:nth-child(even) .case-card__desc { margin-left: auto; }
+.case-card:nth-child(even) .case-card__cta::after { transform-origin: right; }
+
+.case-card__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(22px, 2.4vw, 38px);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    color: var(--ink);
+}
+.case-card__desc {
+    font-family: var(--font-body);
+    font-weight: 400;
+    color: var(--ink-2);
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.5;
+    max-width: 56ch;
+    /* Clip long descriptions so all cards stay identical in height */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.case-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    align-self: flex-start;
+    position: relative;
+    padding-bottom: 4px;
+}
+.case-card__cta::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(.35);
+    transform-origin: left;
+    transition: transform .5s var(--ease-out);
+}
+
+/* Plain hover: just the underline grow + arrow nudge.
+   RGB-trail on the CTA was removed — it sat on top of the glyph
+   and hurt readability. The card itself carries the RGB language. */
+.case-card__cta:hover::after { transform: scaleX(1); }
+.case-card__cta-arrow { display: inline-block; transition: transform .4s var(--ease-out); }
+.case-card__cta:hover .case-card__cta-arrow { transform: translate(4px, -4px); }
+
+/* ============================================================
+   6b. CASE DETAIL — editorial flow
+   ============================================================
+   Layout rhythm:
+     • Back link        — top, small
+     • Title + intro    — narrow text column (max ~760px)
+     • Cover image      — breaks out to full container width
+     • Sections, each:  text in narrow column, then a gallery
+                        of screenshots filling the container width
+   Reads as text → look → text → look, never stretches paragraphs
+   across the page, and lets screenshots be the visual hero.
+   ============================================================ */
+.page-case { background: var(--bg); }
+
+.case-detail {
+    padding: clamp(28px, 4vw, 64px) 0 clamp(60px, 8vw, 120px);
+}
+
+/* Width used by every text block — keeps comfortable reading measure */
+.case-detail__back,
+.case-detail__head,
+.case-detail__section-text {
+    max-width: 760px;
+}
+
+/* ----- Back link — same hover language as Scroll cue / See more ----- */
+.case-detail__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding-bottom: 4px;
+    margin-bottom: clamp(36px, 4.5vw, 72px);
+
+    opacity: 0;
+    transform: translateY(8px);
+    animation: case-fade-up .55s var(--ease-out) .1s forwards;
+}
+.case-detail__back::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(.35);
+    transform-origin: left;
+    transition: transform .5s var(--ease-out);
+}
+.case-detail__back:hover::after { transform: scaleX(1); }
+.case-detail__back-arrow {
+    display: inline-block;
+    transition: transform .4s var(--ease-out);
+}
+.case-detail__back:hover .case-detail__back-arrow { transform: translateX(-4px); }
+
+/* ----- Header: title + intro stacked in a narrow column ----- */
+.case-detail__head {
+    margin-bottom: clamp(36px, 5vw, 64px);
+    opacity: 0;
+    transform: translateY(14px);
+    animation: case-fade-up .7s var(--ease-out) .2s forwards;
+}
+.case-detail__title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 4.6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin-bottom: clamp(20px, 1.8vw, 32px);
+}
+.case-detail__intro {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: clamp(15px, 1.1vw, 19px);
+    line-height: 1.6;
+    color: var(--ink-2);
+}
+
+/* ----- Cover: hero shot — sized at half container width
+   to stay editorial and not dominate the page ----- */
+.case-detail__cover {
+    max-width: 50%;
+    margin: 0 0 clamp(56px, 7vw, 110px);
+    overflow: hidden;
+    background: #ECECEC;
+    box-shadow:
+        0 1px 2px rgba(10,10,10,.04),
+        0 8px 24px rgba(10,10,10,.06);
+
+    opacity: 0;
+    transform: translateY(20px);
+    animation: case-fade-up .8s var(--ease-out) .3s forwards;
+}
+.case-detail__cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ----- Sections: text column → gallery beneath ----- */
+.case-detail__sections {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(64px, 8vw, 128px);
+}
+.case-detail__section {
+    /* Reveal on scroll */
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity .8s var(--ease-out),
+        transform .8s var(--ease-out);
+}
+.case-detail__section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.case-detail__section-text {
+    /* Inherits max-width 760px from the shared rule */
+}
+.case-detail__section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(26px, 2.4vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -.005em;
+    color: var(--ink);
+    margin-bottom: clamp(14px, 1.2vw, 22px);
+}
+.case-detail__section-text p {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.7;
+    color: var(--ink-2);
+}
+.case-detail__section-text p + p { margin-top: 1em; }
+
+.case-detail__list {
+    margin: 1.2em 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .7em;
+}
+.case-detail__list li {
+    position: relative;
+    padding-left: 1.2em;
+    font-family: var(--font-body);
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.65;
+    color: var(--ink-2);
+}
+.case-detail__list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .75em;
+    width: 8px;
+    height: 1px;
+    background: var(--ink);
+}
+.case-detail__list li strong { color: var(--ink); font-weight: 500; }
+
+/* ----- Gallery — full container width, auto-fit grid ----- */
+.case-detail__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(16px, 1.4vw, 28px);
+    align-items: start;
+    margin-top: clamp(32px, 4vw, 64px);
+}
+/* When a section has multiple galleries (nested image rows),
+   subsequent rows sit closer together — matching the in-grid gap */
+.case-detail__gallery + .case-detail__gallery {
+    margin-top: clamp(16px, 1.4vw, 28px);
+}
+/* Single image: don't sub-divide the column — full width hero */
+.case-detail__gallery--solo {
+    grid-template-columns: 1fr;
+}
+/* Exactly two images stay 2-up even on wider viewports */
+.case-detail__gallery--duo {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.case-detail__shot {
+    margin: 0;
+    overflow: hidden;
+    background: #ECECEC;
+    box-shadow:
+        0 1px 2px rgba(10,10,10,.04),
+        0 8px 24px rgba(10,10,10,.06);
+
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+        opacity .8s var(--ease-out),
+        transform .8s var(--ease-out);
+}
+.case-detail__shot.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+.case-detail__shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Empty / not-found fallback */
+.case-detail__empty {
+    text-align: center;
+    padding: clamp(60px, 10vw, 120px) 0;
+    font-family: var(--font-display);
+    color: var(--ink-2);
+}
+
+@keyframes case-fade-up {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   6c. BACK-TO-TOP — small floating arrow, bottom-left
+   ============================================================
+   Hidden by default; .is-visible toggled by app.js once the
+   user scrolls past ~60% viewport height.
+   ============================================================ */
+.back-to-top {
+    position: fixed;
+    left:   clamp(16px, 2vw, 32px);
+    bottom: clamp(20px, 3vw, 40px);
+    width:  44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .82);
+    color: var(--ink);
+    cursor: pointer;
+    z-index: 50;
+
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition:
+        opacity .35s var(--ease-out),
+        transform .35s var(--ease-out),
+        background-color .25s var(--ease-out),
+        color .25s var(--ease-out);
+}
+.back-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.back-to-top:hover {
+    background: var(--ink);
+    color: #FFFFFF;
+}
+.back-to-top__arrow {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 18px;
+    line-height: 1;
+    transition: transform .3s var(--ease-out);
+}
+.back-to-top:hover .back-to-top__arrow {
+    transform: translateY(-3px);
+}
+
+/* ============================================================
+   7. FOOTER — dark band matching Figma
+   ============================================================ */
+.footer {
+    margin-top: clamp(80px, 10vw, 160px);
+    padding: clamp(28px, 3vw, 48px) 0 clamp(20px, 2.5vw, 40px);
+    background: var(--bg-dark);
+    color: #FFFFFF;
+    overflow: hidden;          /* wordmark bleed clipped at edges */
+}
+.footer__contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .7);
+    margin-bottom: clamp(20px, 2vw, 36px);
+}
+.footer__contacts a {
+    color: inherit;
+    transition: color .3s var(--ease-out);
+}
+.footer__contacts a:hover { color: var(--rgb-r); }
+
+.footer__mark {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20.48vw;
+    line-height: .7;
+    letter-spacing: -1.23vw;
+    white-space: nowrap;
+    color: #FFFFFF;
+    margin: 0 0 0 -6.46vw;     /* same bleed as hero title */
+    padding-block: .04em;
+    user-select: none;
+    pointer-events: none;      /* decorative — never intercepts clicks
+                                  (its tall glyphs visually bleed up over
+                                  the contact links above) */
+}
+/* Contacts paint above the wordmark in case it visually overlaps */
+.footer__contacts {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================
+   8. Mobile / narrow viewports
+   ============================================================
+   Below ~720px we switch to a flow layout because vw-absolute
+   gets visually too small. Hero typography still scales but
+   the photo and about stack vertically.
+*/
+@media (max-width: 720px) {
+    .hero {
+        height: auto;
+        padding: 0 5vw 8vw;
+    }
+    .hero__eyebrow,
+    .hero__title,
+    .hero__photo,
+    .hero__about,
+    .hero__scroll {
+        position: static;
+    }
+    .hero__eyebrow {
+        margin-top: 6vw;
+        font-size: 4vw;
+    }
+    .hero__title {
+        margin: 2vw 0 4vw -8vw;
+        font-size: 22vw;
+        letter-spacing: -1.2vw;
+        line-height: .8;
+    }
+    .hero__photo {
+        width: 70vw;
+        margin: 0 auto 4vw;
+    }
+    .hero__about {
+        width: 100%;
+        font-size: 3.5vw;
+    }
+    .hero__scroll { display: none; }
+
+    /* Cards stack vertically on narrow screens — image on top, text below */
+    .case-card,
+    .case-card:nth-child(even) {
+        flex-direction: column;
+        height: auto;
+    }
+    .case-card__media-link {
+        flex: 0 0 auto;
+        width: 100%;
+        height: 60vw;
+    }
+    .case-card__body,
+    .case-card:nth-child(even) .case-card__body {
+        flex: 1 1 auto;
+        height: auto;
+        padding: 24px;
+        text-align: left;
+    }
+    .case-card:nth-child(even) .case-card__desc { margin-left: 0; }
+    .case-card:nth-child(even) .case-card__cta,
+    .case-card:nth-child(even) .case-card__cta::after { align-self: flex-start; transform-origin: left; }
+    .footer__mark { font-size: 22vw; letter-spacing: -1.2vw; margin-left: -8vw; }
+
+    /* Case detail — gallery becomes single column on narrow screens */
+    .case-detail__gallery,
+    .case-detail__gallery--duo {
+        grid-template-columns: 1fr;
+    }
+    /* Cover goes back to full width on narrow viewports */
+    .case-detail__cover { max-width: 100%; }
+    .case-detail__title       { font-size: clamp(30px, 8vw, 48px); }
+    .case-detail__section-title { font-size: clamp(22px, 6vw, 32px); }
+}
+
+/* ============================================================
+   9. Reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    .rgb-layer--grey  { transform: none; }
+    .rgb-layer--green { opacity: 1; transform: translate(-.2vw,  .4vw); }
+    .rgb-layer--blue  { opacity: 1; transform: translate(-.4vw, 1.0vw); }
+    .rgb-layer--red   { opacity: 1; transform: translate(-.6vw, 1.2vw); }
+    .case-card {
+        opacity: 1;
+        transform: none;
+    }
+}

@@ -1,0 +1,63 @@
+Why?
+The cross-platform product has a huge functionality, which every year becomes more and more. After a while, users began to encounter difficulties in interacting with the interface.
+
+Challenge
+This product is used in many areas, including medical and financial solutions. The interface should be clean, neat and understandable to everyone.
+
+Design Process
+I suggested User Research based on existing product to identify strengths and weakness of the current product.
+
+​The process was divided into two weeks:
+
+1 week - product discovery phase to perform customer Interview and product overview.
+
+2 week - remote and in-person user interviews to collect user feedbacks, pain points and needs.
+
+Research & Discovery
+Search for hidden skeletons:
+
+To understand what problems users experience when using the product I decided to track following UX metrics:
+
+Happiness
+
+Engagement
+
+Adoption
+
+Retention
+
+Task success
+
+Accessibility matters:
+
+In the process of analyzing the product, accessibility testing was also conducted according to Section 508 guidelines (GSA Government-wide IT Accessibility Program).
+
+The list of items that do not match the accessibility guidelines was created. 
+
+The first results:
+
+Based on the Customer and User Research results, we have prepared personas, customer journey maps and a list of problem points that need to be improved.
+
+Introduced a UX-driven design workflow:
+
+New design process and documentation was created and demonstrated for Product/Engineering/QA and I walked them through examples of healthy UX workflows.
+
+Design & Functionality
+The fun begins:
+
+The next step was to prepare the first wireframes based on our solutions, create interactive prototype and test it with real users.
+
+Visual design:
+
+Even a small team of designers can struggle with consistency across many design documents covering multiple products.
+
+​I created a shared UI library and Design System with all design elements and a description of the behavior so engineering received consistent and predictable static mockups.
+
+Result
+As a result, we have got a comprehensive, healthy, and user-friendly product that is currently being used by:
+
+300 healthcare units
+
+500 financial institutions
+
+Millions of users around the world

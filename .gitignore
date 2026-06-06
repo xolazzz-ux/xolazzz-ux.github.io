@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# Node (на будущее, если когда-нибудь добавишь сборщик)
+node_modules/
+dist/
+.cache/
+
+# Local env
+.env
+.env.local

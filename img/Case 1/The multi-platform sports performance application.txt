@@ -1,0 +1,215 @@
+Why?
+Coaches, athletes, and sports organizations rely heavily on video, statistics, and performance analytics to improve individual and team performance. However, existing tools were fragmented, inconsistent across platforms, and varied dramatically depending on the user’s role and region.
+ The goal was to create a unified, intuitive, and flexible experience that could work seamlessly for coaches, athletes, parents, and administrators — on both mobile and desktop — while also supporting regional differences such as US high school sports, European clubs, and casual/amateur environments.
+
+Challenge
+The project faced several major challenges:
+
+Different usage patterns: Coaches primarily rely on desktop for analysis, while athletes use mobile for personal progress and highlights.
+
+White-labeling and multiple forks: Each league, school, club, or federation required customized versions of the app.
+
+Inconsistent UX across platforms: Mobile and desktop had evolved independently for years.
+
+High development overhead: Lack of a unified design system slowed down implementation and increased maintenance complexity.
+
+Regional differences in sports culture: Varying expectations, analytics depth, and user behavior across countries.
+
+Additionally, the app required role-specific UX:
+
+Coaches → analytics, strategy, team and game review
+
+Athletes → personalized clips, highlights, progress tracking
+
+Parents → athlete tracking and simplified dashboards
+
+The product also had to integrate an advanced AI assistant (Tactix) that helped coaches analyze games and teams, and helped athletes generate personalized highlights, playlists, and areas of improvement.
+
+Research & Discovery
+To design an experience suitable for multiple user types, regions, and platforms, I built a comprehensive research framework combining qualitative, quantitative, and comparative methodologies.
+
+1. In-Depth User Interviews
+
+We conducted structured interviews with:
+
+Coaches: workflows for video review, playlist building, analytics, and strategy
+
+Athletes: personal motivation, content consumption, learning behavior
+
+Parents: tracking, game results, child-focused experience
+
+Admins & athletic directors: school/league structures and white-label needs
+
+Camera operators & video technicians: integration with recording workflows
+
+The focus was on revealing real-world behavior, moments of friction, cross-platform touchpoints, and expectations for mobile vs. desktop.
+
+2. Multi-User-Centric Design Approach
+
+I developed a design model where each role received a tailored UX layer:
+
+Coaches → deep analysis tools, multi-angle video review, dashboards
+
+Athletes → progress-oriented UI, highlights, personalized feed
+
+Parents → simplified tracking, media feed, performance summaries
+
+Admins → management tools, role assignment, content control
+
+This approach allowed us to structure the interface as modular blocks that could dynamically adapt based on role, region, or platform.
+
+3. Competitor & Market Analysis
+
+We benchmarked platforms across several domains:
+
+Sports analytics (Hudl, Instat, Synergy, VEO, Spiideo etc)
+
+Athlete-focused apps
+
+High school sports platforms (US market)
+
+Amateur and recreational sports tools
+
+Consumer media applications
+
+We evaluated role handling, navigation patterns, analytics visualization, content structures, and motivation mechanics.
+
+4. Analysis of Existing White-Label Versions
+
+We reviewed:
+
+Usage metrics
+
+Clickstream data
+
+User logs
+
+Feature adoption in different regions
+
+UX differences between dozens of forks
+
+This helped identify core functionality and eliminate legacy design inconsistencies.
+
+5. Scenario & Journey Mapping
+
+I created detailed role-based user journeys, identifying:
+
+Critical scenarios
+
+Motivation triggers
+
+Pain points
+
+Context of use (stadium, home, school, training facility)
+
+A key finding was that the interface had to be context-aware and prioritize different tasks depending on the role-device combination.
+
+6. UX Framework & Architecture
+
+Based on the research, I developed a scalable UX framework including:
+
+Unified data model
+
+Flexible navigation structure
+
+Role-specific dashboards
+
+Video-centric architecture
+
+Modularity to support white-label customization
+
+Cross-platform consistency guidelines
+
+This framework became the foundation for all subsequent design and development efforts.
+
+Design & Prototyping
+Wireframes
+
+Created detailed low-fidelity wireframes outlining:
+
+Role-specific navigation
+
+Video and analytics workflows
+
+AI-assisted flows for coaches and athletes
+
+Mobile vs. desktop task distributions
+
+High-Fidelity Prototypes
+
+Developed interactive prototypes simulating complete end-to-end scenarios:
+
+Coach reviewing game performance
+
+Athlete accessing personalized highlights
+
+Parent tracking their child’s progress
+
+Admin managing team and content
+
+AI Integration — Tactix Assistant
+
+Designed flows for the integrated AI assistant that helped:
+
+Coaches analyze games, detect patterns, and get tactical suggestions
+
+Athletes generate highlight reels and personalized improvement playlists
+
+Teams understand areas of improvement faster and more accurately
+
+Design & Functionality
+Role-Adaptive Interface
+
+The UI dynamically adapts to the user’s role, emphasizing the most relevant tools and content.
+
+Modular White-Label Architecture
+
+The interface supports dozens of forks with unique:
+
+Branding
+
+Navigation
+
+Feature toggles
+
+Regional requirements
+
+Unified Mobile & Desktop Experience
+
+Mobile → athlete-focused, quick-access, personal
+ Desktop → coach-focused, analysis-heavy, data-rich
+
+Massive Design System
+
+I created a large-scale, automated design system that was:
+
+Deeply integrated into frontend code
+
+Fully tokenized
+
+Modular
+
+Scalable for white-label needs
+
+Supported fast development with minimal engineering overhead
+
+This dramatically reduced maintenance costs and eliminated inconsistencies across forks.
+
+RESULT
+A unified, scalable, and role-adaptive sports platform
+
+The final solution:
+
+Delivers a cohesive experience across desktop and mobile
+
+Supports multiple roles and drastically different use cases
+
+Scales across continents, leagues, and skill levels
+
+Integrates advanced AI analysis features
+
+Greatly reduces engineering support needs
+
+Enables faster creation of new white-label versions
+
+The platform is now actively rolled out across the US and Europe, with positive feedback from coaches, athletes, and administrators.

@@ -1,0 +1,76 @@
+Why?
+The healthcare industry is highly regulated, with strict standards for data security and patient privacy. The platform needed to be intuitive, secure, and compliant with these regulations while providing a seamless experience for both healthcare providers and patients. Over time, users began to encounter difficulties with the interface, particularly in managing complex patient data and conducting remote consultations.
+
+Challenge
+This project is used in various healthcare settings, including hospitals, clinics, and private practices. The interface needed to be clean, intuitive, and compliant with medical regulations, ensuring that healthcare providers could access and manage patient data efficiently while maintaining security and privacy.
+
+Design Process
+I suggested User Research based on the existing product to identify strengths and weaknesses. The process was divided into two phases:
+
+1. Research & Discovery (2 weeks)
+
+Customer Interviews: Conducted interviews with doctors and nurses to understand their workflows, pain points, and needs.
+
+Journey Mapping: Created detailed customer journey maps to visualize how healthcare providers interact with the platform.
+
+Personas: Developed personas based on the insights gathered from interviews and observations.
+
+2. Testing & Iteration (2 weeks)
+
+Usability Testing: Tested our design hypotheses with real users (doctors and nurses) to validate our solutions.
+
+Metrics Tracking: Measured key UX metrics to evaluate the effectiveness of the design changes.
+
+Research & Discovery
+Understanding User Needs:
+To understand the challenges users faced, I tracked the following UX metrics:
+
+Task Success: Measured how successfully users could complete key tasks, such as accessing patient records or conducting remote consultations.
+
+Efficiency: Tracked the time it took users to complete tasks, aiming to reduce unnecessary steps and streamline workflows.
+
+Satisfaction: Gathered user feedback on the overall experience to identify areas for improvement.
+
+Error Rates: Monitored how often users made errors while using the platform, particularly in data entry and navigation.
+
+Accessibility Matters:
+In the process of analyzing the product, accessibility testing was conducted to ensure compliance with healthcare regulations and standards. A list of items that did not meet accessibility guidelines was created and addressed in the redesign.
+
+The First Results:
+Based on the research findings, we prepared personas, customer journey maps, and a list of pain points that needed to be addressed. This allowed us to prioritize design improvements that would have the most significant impact on user experience.
+
+Design & Functionality
+Introducing a UX-Driven Design Workflow:
+I introduced a new design process and documentation, which was demonstrated to the Product, Engineering, and QA teams. This included examples of healthy UX workflows and how they could be integrated into the development process.
+
+The Fun Begins:
+The next step was to prepare wireframes based on our solutions, create interactive prototypes, and test them with real users. This iterative process allowed us to refine the design and ensure it met user needs.
+
+Visual Design:
+To maintain consistency across the platform, I created a shared UI library and Design System. This included all design elements and descriptions of their behavior, ensuring that the engineering team received consistent and predictable static mockups.
+
+Result
+As a result, we created a comprehensive, secure, and user-friendly digital healthcare platform that is currently being used by:
+
+Hospitals and Clinics: Streamlining patient data management and improving efficiency for healthcare providers.
+
+Remote Consultations: Enabling doctors to conduct remote consultations and monitor patient conditions in real-time.
+
+Key Metrics:
+
+Improved Task Success: Users reported a significant increase in their ability to complete tasks efficiently.
+
+Reduced Error Rates: The redesign minimized errors in data entry and navigation.
+
+Higher Satisfaction: Healthcare providers expressed greater satisfaction with the platform’s usability and functionality.
+
+My Role:
+As the lead designer, I was responsible for:
+
+UX/UI Redesign: Updating the user experience and visual design based on feedback from doctors and nurses.
+
+Design System Creation: Developing an integrated Design System to ensure consistency across the platform.
+
+Collaboration with FE Team: Working closely with the front-end development team to ensure seamless integration of the design.
+
+User Research & Testing: Conducting interviews, creating personas, and testing design solutions with real users.

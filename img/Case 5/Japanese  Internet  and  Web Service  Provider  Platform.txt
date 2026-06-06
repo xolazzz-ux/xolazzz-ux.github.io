@@ -1,0 +1,99 @@
+Why?
+The platform, while functional, had an outdated interface that lacked consistency across its various services. With no direct access to end-users, the redesign relied on feedback from product owners, managers, and built-in analytics to guide decision-making. The challenge was to create a user-friendly, accessible, and scalable design that could accommodate future features and services.
+
+Challenge
+The main challenges included:
+
+No direct access to end-users: Testing and validation had to be conducted with product owners and managers, as well as through analytics and surveys.
+
+Multiple services: The platform offered a wide range of services, each with its own unique requirements, making consistency a significant challenge.
+
+Accessibility compliance: The design needed to meet strict accessibility standards to ensure inclusivity for all users.
+
+Design Process
+The process was divided into three key phases:
+
+1. Research & Discovery (1 week)
+
+Analytics Review: Analyzed existing user behavior data to identify pain points and areas for improvement.
+
+Stakeholder Interviews: Conducted interviews with product owners and managers to understand their needs and expectations.
+
+Competitive Analysis: Studied similar platforms (e.g., AWS, Azure) to identify best practices and industry standards.
+
+2. Design & Prototyping (2 weeks)
+
+Wireframing: Created low-fidelity wireframes for key user flows, focusing on improving navigation and usability.
+
+Design System Development: Established a unified Design System to ensure consistency across all services, including typography, color schemes, and UI components.
+
+Accessibility Testing: Ensured all designs met accessibility standards (e.g., WCAG) through rigorous testing.
+
+3. Testing & Iteration (1 week)
+
+Stakeholder Testing: Conducted usability testing with product owners and managers to validate the design.
+
+Analytics Integration: Used built-in analytics to track user interactions with the new design and identify areas for further improvement.
+
+Iterative Refinement: Made adjustments based on feedback and analytics data to ensure the design met stakeholder and user needs.
+
+Research & Discovery
+Understanding the Platform:
+Since direct access to end-users was not possible, I relied on analytics and stakeholder feedback to guide the redesign. This included:
+
+User Flow Analysis: Identified key user flows and pain points through analytics data.
+
+Stakeholder Input: Gathered insights from product owners and managers to understand their priorities and expectations.
+
+Accessibility Matters:
+Accessibility was a top priority. I conducted accessibility audits and ensured that all designs met WCAG standards, particularly for users with visual or motor impairments.
+
+Design & Functionality
+Design System Creation:
+I developed a comprehensive Design System that included:
+
+Typography and Color Schemes: Established a consistent visual language across all services.
+
+UI Components: Created reusable components (e.g., buttons, forms, navigation elements) to streamline development.
+
+Templates: Designed templates for common user flows to ensure consistency and reduce development time.
+
+Feature Additions:
+I worked on adding new features to the platform, ensuring they aligned with the existing Design System and met accessibility standards. This included:
+
+Dashboard Improvements: Redesigned the dashboard to provide a more intuitive and user-friendly experience.
+
+Navigation Enhancements: Simplified navigation to make it easier for users to access different services.
+
+Collaboration with Developers:
+I worked closely with the development team to ensure seamless implementation of the new design. This included:
+
+Regular Syncs: Held regular meetings to align on design decisions and address any technical challenges.
+
+Design Handoff: Provided detailed design specifications and assets to ensure accurate implementation.
+
+Result
+he redesign resulted in a modern, user-friendly, and accessible platform that improved usability and consistency across all services. The new Design System streamlined future development, making it easier to add new features and services.
+
+Key Metrics:
+
+Improved Usability: Stakeholders reported that the new design was more intuitive and easier to navigate.
+
+Accessibility Compliance: The platform met all required accessibility standards, ensuring inclusivity for all users.
+
+Consistency Across Services: The Design System ensured a cohesive experience across all services, reducing user confusion.
+
+My Role:
+I was responsible for:
+
+Redesigning the UX and visual design of the platform.
+
+Developing a unified Design System for all services.
+
+Ensuring accessibility compliance through rigorous testing.
+
+Collaborating with developers to ensure seamless implementation.
+
+Adding new features and continuously supporting the platform post-launch.
+
+This project demonstrated the importance of analytics-driven design and cross-functional collaboration in creating a scalable and user-friendly platform.

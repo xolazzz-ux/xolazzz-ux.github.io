@@ -1,0 +1,83 @@
+Why?
+The application is critical for the safe operation of metro systems, but its complexity and the lack of direct access to end-users (metro operators) pose significant challenges. The interface must be intuitive, reliable, and adaptable to various regulatory environments, ensuring that operators can make quick, informed decisions without errors.
+
+Challenge
+The primary challenge was designing an interface that could handle the vast functionality of the system while adhering to strict safety regulations that vary by country. Additionally, the lack of direct feedback from end-users made it difficult to validate design decisions and ensure usability.
+
+Design Process
+Given the constraints, I proposed a Research-Driven Design Approach to identify potential pain points and ensure the interface met the needs of operators, even without direct user feedback.
+
+The process was divided into three phases:
+
+Research & Discovery (2 weeks)
+
+Literature Review: Studied existing metro operation protocols, safety regulations, and HMI systems in different countries.
+
+Stakeholder Interviews: Conducted interviews with product owners, metro system engineers and trainers to understand operational workflows and pain points.
+
+Competitive Analysis: Analyzed existing HMI systems in other industries (e.g., aviation, rail) to identify best practices and potential pitfalls.
+
+Design & Prototyping (3 weeks)
+
+Wireframing: Created low-fidelity wireframes focusing on the Secure Command Features, ensuring that critical functions like emergency stops, door controls, speed adjustments etc. were easily accessible.
+
+Interactive Prototyping: Developed an interactive prototype to simulate the operator’s workflow, focusing on reducing cognitive load and minimizing the risk of errors.
+
+Collaboration with Other Design Teams: Worked closely with other design teams to ensure consistency across the application, particularly in areas where features overlapped (e.g., platform controls and train operations).
+
+Testing & Iteration (2 weeks)
+
+Expert Review: Conducted usability testing with metro system experts and trainers to validate the design.
+
+Accessibility Testing: Ensured the interface met accessibility standards, particularly for low-light environments and high-stress situations.
+
+Iterative Improvements: Refined the design based on feedback from experts and alignment with safety regulations.
+
+Research & Discovery
+Understanding the Constraints:
+Since direct access to end-users was not possible, I relied on secondary research and stakeholder input to identify potential usability issues. This included:
+
+Task Analysis: Breaking down the operator’s tasks into smaller steps to identify areas where the interface could simplify or streamline actions.
+
+
+Regulatory Compliance: Mapping out the safety regulations for each country to ensure the design could adapt to different requirements.
+
+Accessibility Matters:
+Given the high-stress environment in which the application would be used, accessibility was a key focus. I conducted low-light usability testing and ensured that the interface was clear and legible under various lighting conditions.
+
+Design & Functionality
+Secure Command Features:
+I focused on ensuring that critical functions were easily accessible and protected from accidental activation. 
+Collaboration with Other Teams:
+I worked closely with other design teams to ensure consistency across the application. This included:
+
+Shared Design System: Developed a shared UI library and design system to ensure consistency across all features and screens.
+
+
+Cross-Team Reviews: Participated in regular design reviews with other teams to align on design decisions and ensure a cohesive user experience.
+
+Result
+The final design resulted in a comprehensive, secure, and user-friendly HMI application that met the needs of metro operators while adhering to strict safety regulations. The application is currently being rolled out in multiple countries, with positive feedback from stakeholders and trainers.
+
+Key Metrics:
+
+Reduced Cognitive Load: Operators reported that the interface was intuitive and easy to navigate, even in high-stress situations.
+
+
+Regulatory Compliance: The design successfully adapted to the safety regulations of each country, ensuring compliance without compromising usability.
+
+
+Consistency Across Teams: The shared UI library and design system ensured a cohesive experience across all features and screens.
+
+My Role:
+As the lead designer I was responsible for:
+
+Designing and prototyping critical safety features.
+
+Collaborating with other design teams to ensure consistency.
+
+Conducting research and testing to validate design decisions.
+
+Ensuring the interface met accessibility standards and regulatory requirements.
+
+This project highlighted the importance of research-driven design and cross-team collaboration in creating complex, safety-critical applications.

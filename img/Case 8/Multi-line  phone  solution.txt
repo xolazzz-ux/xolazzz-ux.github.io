@@ -1,0 +1,14 @@
+Challenge
+The main challenge is to create an application and extension that will efficiently work with other websites and sales solutions, call centers, covering a vast array of functionality within the limited space of a web browser window.
+
+Non-technical users, who often change workplaces or work on the go, can also be added to the challenges.
+
+Design decisions
+Design decisions were driven by user research findings and understanding of the user needs, goals, context of usage, user emotional journey's insights as well as principles of consistency, smooth navigation, balance.
+
+My contribution
+
+On this project, I was involved in the process of recruiting a design team and building the design process. I also participated in conducting user research, creating user flows, prototyping and user interviews.
+
+Result
+As a result, a design team of three people was assembled, working according to the established design process. The first two phases of the project were completed with positive feedback from the client and its users. The project is ongoing at the moment.

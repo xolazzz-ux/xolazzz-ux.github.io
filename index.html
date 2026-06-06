@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Denis Bogdanov · Lead UX/UI Designer. 15+ years crafting interfaces that combine aesthetics with business outcomes." />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <title>Denis Bogdanov · UX/UI Designer</title>
+</head>
+<body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="top">
+        <p class="hero__eyebrow">UX/UI DESIGNER</p>
+
+        <h1 class="hero__title" aria-label="Denis Bogdanov">
+            <span class="hero__title-line">DENISBOGDANOV</span>
+        </h1>
+
+        <figure class="hero__photo rgb-image rgb-image--hero">
+            <img
+                src="img/Hero%20image/img-grey.png"
+                alt="Denis Bogdanov on a skateboard"
+                class="rgb-layer rgb-layer--grey"
+                decoding="async"
+                fetchpriority="high"
+            />
+            <img
+                src="img/Hero%20image/img-red.png"
+                alt=""
+                aria-hidden="true"
+                class="rgb-layer rgb-layer--red"
+                decoding="async"
+            />
+            <img
+                src="img/Hero%20image/img-green.png"
+                alt=""
+                aria-hidden="true"
+                class="rgb-layer rgb-layer--green"
+                decoding="async"
+            />
+            <img
+                src="img/Hero%20image/img-blue.png"
+                alt=""
+                aria-hidden="true"
+                class="rgb-layer rgb-layer--blue"
+                decoding="async"
+            />
+        </figure>
+
+        <div class="hero__about">
+            <p>
+                An experienced <strong>Lead UX/UI Designer</strong> with over 15 years of experience in
+                developing and implementing innovative user interfaces and experiences. Specializing in
+                creating products that successfully combine aesthetics and functionality while addressing
+                business challenges.
+            </p>
+            <p>
+                I have extensive experience in managing projects from concept to launch, with a strong focus
+                on cross-functional collaboration and team management.
+            </p>
+            <p>
+                Successfully led projects for various international brands and startups, achieving significant
+                improvements in user interaction and increasing conversion rates.
+            </p>
+            <p>
+                I am distinguished by my creative thinking and deep understanding of user needs, allowing me
+                to design solutions that are not only visually appealing but also effective.
+            </p>
+        </div>
+
+        <a href="#cases" class="hero__scroll" aria-label="Scroll to case studies">
+            <span class="hero__scroll-arrow" aria-hidden="true">↓</span>
+            <span class="hero__scroll-label">Case Studies</span>
+        </a>
+    </header>
+
+    <!-- ============ CASE STUDIES ============ -->
+    <section class="cases" id="cases">
+        <div class="container">
+            <header class="cases__head">
+                <span class="cases__mark" aria-hidden="true">×</span>
+                <h2 class="cases__title">Case Studies</h2>
+            </header>
+
+            <ol class="cases__list" id="cases-list"></ol>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__contacts">
+                <span>Dolný Kubín, Slovakia</span>
+                <span aria-hidden="true">•</span>
+                <a href="tel:+421910367294">+421 910 367 294</a>
+                <span aria-hidden="true">•</span>
+                <a href="mailto:xolodilnika@gmail.com">Email</a>
+                <span aria-hidden="true">•</span>
+                <a href="https://www.linkedin.com/in/denis-bogdanov-5513418/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+        <p class="footer__mark" aria-hidden="true">DENISBOGDANOV</p>
+    </footer>
+
+    <!-- Scroll-to-top -->
+    <button class="back-to-top" type="button" aria-label="Scroll back to top">
+        <span class="back-to-top__arrow" aria-hidden="true">↑</span>
+    </button>
+
+    <script src="cases-data.js" defer></script>
+    <script src="main.js" defer></script>
+    <script src="app.js" defer></script>
+</body>
+</html>

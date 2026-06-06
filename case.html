@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Denis Bogdanov · Case study" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+    <title id="case-page-title">Denis Bogdanov · Case study</title>
+</head>
+<body class="page-case">
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- ============ CASE DETAIL ============ -->
+    <main class="case-detail" id="case-root">
+        <div class="container">
+            <!-- Back link -->
+            <a class="case-detail__back" href="index.html#cases" aria-label="Back to case studies">
+                <span class="case-detail__back-arrow" aria-hidden="true">←</span>
+                <span>Back</span>
+            </a>
+
+            <!-- Header: title + intro stacked in a narrow column -->
+            <header class="case-detail__head">
+                <h1 class="case-detail__title" id="case-title"></h1>
+                <p class="case-detail__intro" id="case-intro"></p>
+            </header>
+
+            <!-- Cover image — full container width below the title block -->
+            <figure class="case-detail__cover">
+                <img id="case-cover" alt="" decoding="async" fetchpriority="high" />
+            </figure>
+
+            <!-- Sections rendered by JS: text column + full-width gallery -->
+            <div class="case-detail__sections" id="case-sections"></div>
+        </div>
+
+        <!-- Fallback shown if slug is unknown -->
+        <div class="case-detail__empty" id="case-empty" hidden>
+            <p>Case study not found.</p>
+            <a href="index.html#cases" class="case-detail__back">
+                <span class="case-detail__back-arrow" aria-hidden="true">←</span>
+                <span>Back to all cases</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__contacts">
+                <span>Dolný Kubín, Slovakia</span>
+                <span aria-hidden="true">•</span>
+                <a href="tel:+421910367294">+421 910 367 294</a>
+                <span aria-hidden="true">•</span>
+                <a href="mailto:xolodilnika@gmail.com">Email</a>
+                <span aria-hidden="true">•</span>
+                <a href="https://www.linkedin.com/in/denis-bogdanov-5513418/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+        <p class="footer__mark" aria-hidden="true">DENISBOGDANOV</p>
+    </footer>
+
+    <!-- Scroll-to-top -->
+    <button class="back-to-top" type="button" aria-label="Scroll back to top">
+        <span class="back-to-top__arrow" aria-hidden="true">↑</span>
+    </button>
+
+    <script src="cases-data.js" defer></script>
+    <script src="case.js" defer></script>
+    <script src="app.js" defer></script>
+</body>
+</html>
