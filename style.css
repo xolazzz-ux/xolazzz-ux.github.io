@@ -805,13 +805,11 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
 @media (max-width: 720px) {
     .hero {
         height: auto;
-        min-height: 90vw;        /* tight — about is allowed to overlap photo's transparent bottom */
-        padding: 0 0 4vw;        /* no horizontal padding — title bleeds full-width */
-        position: relative;       /* anchor for absolute photo */
+        padding: 0 0 8vw;        /* no horizontal padding — title bleeds full-width */
+        position: relative;
     }
 
-    /* Text-side items flow normally on mobile.
-       Photo stays absolutely positioned (overlap behavior, like desktop). */
+    /* Text-side items flow normally on mobile. */
     .hero__eyebrow,
     .hero__title,
     .hero__about,
@@ -824,12 +822,9 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
         font-size: 3.6vw;
     }
 
-    /* Title bleeds left AND right past the viewport edges.
-       width: max-content lets it expand to natural text width;
-       body's overflow-x: hidden then clips at viewport edges
-       (no awkward CSS-padding gutter on the right anymore). */
+    /* Title bleeds left AND right past the viewport edges. */
     .hero__title {
-        margin: 2vw 0 0 -6vw;
+        margin: 2vw 0 2vw -6vw;
         padding: 0;
         font-size: 26vw;
         letter-spacing: -1.4vw;
@@ -838,31 +833,43 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
         width: max-content;
     }
 
-    /* Photo overlaps the title from the right — mirrors desktop layering.
-       The PNG file has a lot of transparent/white space around the figure,
-       so we position the container via left (not right) and shift the
-       visible person to the right half of the viewport using a large width
-       that bleeds off the right edge. */
+    /* PHOTO — float right, text wraps the silhouette via
+       shape-outside (alpha channel of the grey PNG).
+       Note: shape-outside reads pixels — it only works when the
+       page is served over HTTP(S). On file:// it silently falls
+       back to a rectangle. Test on denisbogdanov.com (live),
+       not on a local file in Chrome DevTools.
+       z-index + negative margin-top pull the photo UP over the title. */
     .hero__photo {
-        position: absolute;
-        top: 2vw;
-        left: 35vw;              /* container starts well past viewport center */
+        position: relative;
+        float: right;
+        top: auto;
         right: auto;
-        width: 100vw;            /* container is wider than viewport */
-        margin: 0;
+        left: auto;
+        width: 75vw;
+        margin: -22vw -6vw 2vw 1vw;     /* negative-top → overlap title */
+        z-index: 2;                       /* paint above title text */
+        shape-outside: url('img/Hero%20image/img-grey.png');
+        shape-image-threshold: .5;
+        shape-margin: .8vw;
     }
 
-    /* About sits just below the visible figure. PNG bottom is transparent,
-       so margin-top stays compact — about lines up under the skateboard. */
+    /* About flows naturally — paragraphs wrap around the floated figure */
     .hero__about {
-        margin: 68vw 0 0;
+        margin: 0;
         padding: 0 5vw;
         width: 100%;
         font-size: 3.6vw;
         line-height: 1.55;
     }
+    /* Bonus: let the first paragraph "hug" the right side of the photo
+       so the wrap visually starts where the head/shoulders are */
+    .hero__about p:first-child { margin-top: 0; }
 
     .hero__scroll { display: none; }
+
+    /* Clear the float so the cases section starts clean below the hero */
+    .cases { clear: both; }
 
     /* Cards stack vertically on narrow screens — image on top, text below */
     .case-card,
