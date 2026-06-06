@@ -833,43 +833,32 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
         width: max-content;
     }
 
-    /* PHOTO — float right, text wraps the silhouette via
-       shape-outside (alpha channel of the grey PNG).
-       Note: shape-outside reads pixels — it only works when the
-       page is served over HTTP(S). On file:// it silently falls
-       back to a rectangle. Test on denisbogdanov.com (live),
-       not on a local file in Chrome DevTools.
-       z-index + negative margin-top pull the photo UP over the title. */
+    /* PHOTO — pinned to the top of the viewport, horizontally centered.
+       Overlaps the eyebrow + title visually (which are still readable
+       around its edges thanks to the wordmark bleed). */
     .hero__photo {
-        position: relative;
-        float: right;
-        top: auto;
+        position: absolute;
+        top: 0;
+        left: 50%;
         right: auto;
-        left: auto;
-        width: 75vw;
-        margin: -22vw -6vw 2vw 1vw;     /* negative-top → overlap title */
+        transform: translateX(-50%);     /* center horizontally */
+        width: 70vw;
+        margin: 0;
         z-index: 2;                       /* paint above title text */
-        shape-outside: url('img/Hero%20image/img-grey.png');
-        shape-image-threshold: .5;
-        shape-margin: .8vw;
+        float: none;
+        shape-outside: none;
     }
 
-    /* About flows naturally — paragraphs wrap around the floated figure */
+    /* About flows after the image — margin-top clears the photo's height */
     .hero__about {
-        margin: 0;
+        margin: 60vw 0 0;
         padding: 0 5vw;
         width: 100%;
         font-size: 3.6vw;
         line-height: 1.55;
     }
-    /* Bonus: let the first paragraph "hug" the right side of the photo
-       so the wrap visually starts where the head/shoulders are */
-    .hero__about p:first-child { margin-top: 0; }
 
     .hero__scroll { display: none; }
-
-    /* Clear the float so the cases section starts clean below the hero */
-    .cases { clear: both; }
 
     /* Cards stack vertically on narrow screens — image on top, text below */
     .case-card,
