@@ -805,8 +805,8 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
 @media (max-width: 720px) {
     .hero {
         height: auto;
-        min-height: 108vw;       /* room for title + overlapping photo */
-        padding: 0 0 8vw;        /* no horizontal padding — title bleeds full-width */
+        min-height: 90vw;        /* tight — about is allowed to overlap photo's transparent bottom */
+        padding: 0 0 4vw;        /* no horizontal padding — title bleeds full-width */
         position: relative;       /* anchor for absolute photo */
     }
 
@@ -839,17 +839,23 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
     }
 
     /* Photo overlaps the title from the right — mirrors desktop layering.
-       Keeps position: absolute from the global rule, just changes anchors. */
+       The PNG file has notable white padding around the figure, so we
+       make the container deliberately oversize and bleed it off the right
+       edge: the actual person ends up at the right half of the viewport
+       and sits ON TOP of the title text, exactly like desktop. */
     .hero__photo {
-        top: 14vw;
-        right: -4vw;
+        top: 4vw;
+        right: -18vw;
         left: auto;              /* override desktop's left: 50vw */
-        width: 62vw;
+        width: 90vw;
     }
 
-    /* About sits below in flow — margin-top clears the absolutely-positioned photo */
+    /* About sits below the visible figure. Because the photo PNG has
+       transparent/white space at the bottom, about's margin-top can be
+       smaller than the photo's full canvas height — visually it lines up
+       just under the skateboard. */
     .hero__about {
-        margin: 80vw 0 0;
+        margin: 70vw 0 0;
         padding: 0 5vw;
         width: 100%;
         font-size: 3.6vw;
