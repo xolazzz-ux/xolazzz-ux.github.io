@@ -839,23 +839,23 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
     }
 
     /* Photo overlaps the title from the right — mirrors desktop layering.
-       The PNG file has notable white padding around the figure, so we
-       make the container deliberately oversize and bleed it off the right
-       edge: the actual person ends up at the right half of the viewport
-       and sits ON TOP of the title text, exactly like desktop. */
+       The PNG file has a lot of transparent/white space around the figure,
+       so we position the container via left (not right) and shift the
+       visible person to the right half of the viewport using a large width
+       that bleeds off the right edge. */
     .hero__photo {
-        top: 4vw;
-        right: -18vw;
-        left: auto;              /* override desktop's left: 50vw */
-        width: 90vw;
+        position: absolute;
+        top: 2vw;
+        left: 35vw;              /* container starts well past viewport center */
+        right: auto;
+        width: 100vw;            /* container is wider than viewport */
+        margin: 0;
     }
 
-    /* About sits below the visible figure. Because the photo PNG has
-       transparent/white space at the bottom, about's margin-top can be
-       smaller than the photo's full canvas height — visually it lines up
-       just under the skateboard. */
+    /* About sits just below the visible figure. PNG bottom is transparent,
+       so margin-top stays compact — about lines up under the skateboard. */
     .hero__about {
-        margin: 70vw 0 0;
+        margin: 68vw 0 0;
         padding: 0 5vw;
         width: 100%;
         font-size: 3.6vw;
