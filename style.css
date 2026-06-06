@@ -838,7 +838,7 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
        head sits closer to the screen edge. */
     .hero__photo {
         position: absolute;
-        top: -4vw;                       /* lift ~10-15px past top edge */
+        top: -6vw;                       /* lift ~10-15px past top edge */
         left: 50%;
         right: auto;
         transform: translateX(-50%);     /* center horizontally */
