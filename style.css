@@ -38,14 +38,19 @@
    2. Reset
    ---------------------------------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+    overflow-x: clip;             /* stop horizontal scroll on mobile (stricter than hidden) */
+}
 body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
     font-family: var(--font-display);  /* original used Roboto Condensed on body */
     line-height: 1.55;
-    overflow-x: hidden;          /* clip wordmark that bleeds past viewport */
+    overflow-x: clip;             /* clip wordmark + photo bleed; clip beats hidden because
+                                     it doesn't create a scroll context, so vertical scroll
+                                     stays normal and mobile browsers behave consistently */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -807,6 +812,7 @@ ol, ul { list-style: none; padding: 0; margin: 0; }
         height: auto;
         padding: 0 0 8vw;        /* no horizontal padding — title bleeds full-width */
         position: relative;
+        overflow-x: clip;        /* contain title + photo bleed inside the hero */
     }
 
     /* Text-side items flow normally on mobile. */
